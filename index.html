@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de TMB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de TMB</h1>
+        <label for="gender">Gênero:</label>
+        <select id="gender">
+            <option value="male">Homem</option>
+            <option value="female">Mulher</option>
+        </select>
+
+        <label for="age">Idade (anos):</label>
+        <input type="number" id="age" placeholder="Digite sua idade">
+
+        <label for="weight">Peso (kg):</label>
+        <input type="number" id="weight" placeholder="Digite seu peso">
+
+        <label for="height">Altura (cm):</label>
+        <input type="number" id="height" placeholder="Digite sua altura">
+
+        <button onclick="calculateTMB()">Calcular TMB</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTMB() {
+            const gender = document.getElementById('gender').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+
+            if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+                document.getElementById('result').textContent = "Por favor, preencha todos os campos corretamente.";
+                return;
+            }
+
+            let tmb;
+
+            if (gender === 'male') {
+                tmb = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+            } else {
+                tmb = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+            }
+
+            document.getElementById('result').textContent = `Sua TMB é: ${tmb.toFixed(2)} kcal/dia.`;
+        }
+    </script>
+</body>
+</html>
 
