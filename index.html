@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de TMB</title>
+    <title>Calculadora de Saúde</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,6 +27,20 @@
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
+        }
+        .calculo-item {
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+        .calculo-item:hover {
+            color: #0056b3;
+        }
+        .detalhes {
+            display: none;
+            margin-top: 10px;
         }
         label {
             display: block;
@@ -62,28 +76,55 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calculadora de TMB</h1>
-        <label for="gender">Gênero:</label>
-        <select id="gender">
-            <option value="male">Homem</option>
-            <option value="female">Mulher</option>
-        </select>
+        <h1>Calculadora de Saúde</h1>
 
-        <label for="age">Idade (anos):</label>
-        <input type="number" id="age" placeholder="Digite sua idade">
+        <!-- Lista de cálculos -->
+        <div class="calculo-item" onclick="toggleDetails('tmb')">Cálculo de TMB</div>
+        <div id="tmb" class="detalhes">
+            <label for="gender">Gênero:</label>
+            <select id="gender">
+                <option value="male">Homem</option>
+                <option value="female">Mulher</option>
+            </select>
 
-        <label for="weight">Peso (kg):</label>
-        <input type="number" id="weight" placeholder="Digite seu peso">
+            <label for="age">Idade (anos):</label>
+            <input type="number" id="age" placeholder="Digite sua idade">
 
-        <label for="height">Altura (cm):</label>
-        <input type="number" id="height" placeholder="Digite sua altura">
+            <label for="weight">Peso (kg):</label>
+            <input type="number" id="weight" placeholder="Digite seu peso">
 
-        <button onclick="calculateTMB()">Calcular TMB</button>
+            <label for="height">Altura (cm):</label>
+            <input type="number" id="height" placeholder="Digite sua altura">
 
-        <div class="result" id="result"></div>
+            <button onclick="calculateTMB()">Calcular TMB</button>
+            <div class="result" id="result-tmb"></div>
+        </div>
+
+        <div class="calculo-item" onclick="toggleDetails('imc')">Cálculo de IMC</div>
+        <div id="imc" class="detalhes">
+            <label for="weight-imc">Peso (kg):</label>
+            <input type="number" id="weight-imc" placeholder="Digite seu peso">
+
+            <label for="height-imc">Altura (m):</label>
+            <input type="number" id="height-imc" placeholder="Digite sua altura">
+
+            <button onclick="calculateIMC()">Calcular IMC</button>
+            <div class="result" id="result-imc"></div>
+        </div>
     </div>
 
     <script>
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            const allDetails = document.querySelectorAll('.detalhes');
+            allDetails.forEach(item => {
+                if (item !== details) {
+                    item.style.display = 'none';
+                }
+            });
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+
         function calculateTMB() {
             const gender = document.getElementById('gender').value;
             const age = parseInt(document.getElementById('age').value);
@@ -91,7 +132,7 @@
             const height = parseFloat(document.getElementById('height').value);
 
             if (isNaN(age) || isNaN(weight) || isNaN(height)) {
-                document.getElementById('result').textContent = "Por favor, preencha todos os campos corretamente.";
+                document.getElementById('result-tmb').textContent = "Por favor, preencha todos os campos corretamente.";
                 return;
             }
 
@@ -103,9 +144,21 @@
                 tmb = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
             }
 
-            document.getElementById('result').textContent = `Sua TMB é: ${tmb.toFixed(2)} kcal/dia.`;
+            document.getElementById('result-tmb').textContent = `Sua TMB é: ${tmb.toFixed(2)} kcal/dia.`;
+        }
+
+        function calculateIMC() {
+            const weight = parseFloat(document.getElementById('weight-imc').value);
+            const height = parseFloat(document.getElementById('height-imc').value);
+
+            if (isNaN(weight) || isNaN(height)) {
+                document.getElementById('result-imc').textContent = "Por favor, preencha todos os campos corretamente.";
+                return;
+            }
+
+            const imc = weight / (height * height);
+            document.getElementById('result-imc').textContent = `Seu IMC é: ${imc.toFixed(2)}`;
         }
     </script>
 </body>
 </html>
-
