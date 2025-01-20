@@ -6,15 +6,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #d1d8e0; /* Fundo intermediário mais escuro */
-    color: #333;
+    background: #000000; /* Fundo preto */
+    color: #f4f4f4;
 }
 
 .container {
-    background: #e6e9ef; /* Caixa da calculadora com tom mais neutro */
+    background: #1a1a1a; /* Caixa da calculadora em tom mais escuro */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     max-width: 400px;
     width: 100%;
 }
@@ -23,7 +23,7 @@ h1 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    color: #f4f4f4;
 }
 
 .calculo-item {
@@ -31,19 +31,19 @@ h1 {
     cursor: pointer;
     font-size: 18px;
     color: #ffffff;
-    background: linear-gradient(135deg, #5d5fef, #7a7eff); /* Gradiente mais suave para os botões cálculo */
+    background: linear-gradient(135deg, #32cd32, #228b22); /* Gradiente verde para os botões cálculo */
     padding: 12px;
     border-radius: 25px;
     text-align: center;
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .calculo-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #7a7eff, #5d5fef);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #228b22, #32cd32);
 }
 
 .detalhes {
@@ -54,23 +54,23 @@ h1 {
 label {
     display: block;
     margin: 10px 0 5px;
-    color: #333;
+    color: #f4f4f4;
 }
 
 input, select {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 5px;
-    background: #f4f4f6;
-    color: #333;
+    background: #2a2a2a;
+    color: #f4f4f4;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #5d5fef, #7a7eff); /* Gradiente suave para os botões */
+    background: linear-gradient(135deg, #32cd32, #228b22); /* Gradiente verde para os botões */
     color: #fff;
     border: none;
     border-radius: 25px;
@@ -81,14 +81,14 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #7a7eff, #5d5fef);
+    background: linear-gradient(135deg, #228b22, #32cd32);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .result {
     margin-top: 20px;
     font-size: 18px;
     text-align: center;
-    color: #333;
+    color: #f4f4f4;
 }
