@@ -29,12 +29,20 @@ h1 {
     margin: 10px 0;
     cursor: pointer;
     font-size: 18px;
-    color: #007BFF;
-    text-decoration: underline;
+    color: #fff;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Gradiente para os botões cálculo */
+    padding: 12px;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .calculo-item:hover {
-    color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
 }
 
 .detalhes {
@@ -80,3 +88,4 @@ button:hover {
     text-align: center;
     color: #333;
 }
+
