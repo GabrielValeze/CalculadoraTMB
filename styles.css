@@ -6,7 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe); /* Gradiente suave */
+    color: #333;
 }
 
 .container {
