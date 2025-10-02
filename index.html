@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Saúde</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .assinatura {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -44,6 +55,9 @@
             <div class="result" id="result-imc"></div>
         </div>
     </div>
+
+    <!-- Assinatura no canto inferior direito -->
+    <div class="assinatura">Murillo Treinador</div>
 
     <script>
         function toggleDetails(id) {
